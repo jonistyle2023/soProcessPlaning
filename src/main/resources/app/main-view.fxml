@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="main.java.app.Controller">
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="Algoritmo:"/>
+            <ComboBox fx:id="algoritmoComboBox"/>
+            <Button text="Ejecutar" onAction="#onEjecutar"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="10">
+            <TableView fx:id="tablaResultados">
+                <columns>
+                    <TableColumn fx:id="colId" text="Proceso"/>
+                    <TableColumn fx:id="colEjecucion" text="T. Ejecución"/>
+                    <TableColumn fx:id="colLlegada" text="T. Llegada"/>
+                    <TableColumn fx:id="colComienzo" text="T. Comienzo"/>
+                    <TableColumn fx:id="colFinal" text="T. Finalización"/>
+                    <TableColumn fx:id="colRetorno" text="T. Retorno"/>
+                    <TableColumn fx:id="colEspera" text="T. Espera"/>
+                </columns>
+            </TableView>
+            <Pane fx:id="ganttPane" prefHeight="120" style="-fx-background-color: #f0f0f0; -fx-border-color: black;"/>
+        </VBox>
+    </center>
+</BorderPane>

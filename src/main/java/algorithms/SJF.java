@@ -1,6 +1,6 @@
-package algorithms;
+package main.java.algorithms;
 
-import model.Proceso;
+import main.java.model.Proceso;
 import java.util.*;
 
 public class SJF implements Planificador {
@@ -30,16 +30,16 @@ public class SJF implements Planificador {
 
             // Seleccionar el más corto (tiempo de ejecución menor)
             Proceso elegido = disponibles.stream()
-                    .min(Comparator.comparingInt(Proceso::getTiempoEjecución))
+                    .min(Comparator.comparingInt(Proceso::getTiempoEjecucion))
                     .get();
 
             colaListos.remove(elegido);
 
             // Calcular tiempos
             elegido.setTiempoComienzo(tiempoActual);
-            elegido.setTiempoFin(tiempoActual + elegido.getTiempoEjecución());
+            elegido.setTiempoFin(tiempoActual + elegido.getTiempoEjecucion());
             elegido.setTiempoRetorno(elegido.getTiempoFin() - elegido.getTiempoLlegada());
-            elegido.setTiempoEspera(elegido.getTiempoRetorno() - elegido.getTiempoEjecución());
+            elegido.setTiempoEspera(elegido.getTiempoRetorno() - elegido.getTiempoEjecucion());
 
             // Avanzar reloj
             tiempoActual = elegido.getTiempoFin();

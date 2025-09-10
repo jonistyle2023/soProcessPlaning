@@ -1,6 +1,6 @@
-package algorithms;
+package main.java.algorithms;
 
-import model.Proceso;
+import main.java.model.Proceso;
 import java.util.List;
 
 public interface Planificador {

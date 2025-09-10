@@ -1,10 +1,16 @@
-# Desarrollo Software para planificación de procesos
+# Desarrollo Software para Planificación de Procesos
 
 >[!important]
 > 
 > **Realizado por:** EL MEJOR GRUPO del curso **Sistemas Operativos**, paralelo 3/1 de la carrera de Software de la UPSE.
 > 
->Nombres: PROXIMO AQUI
+>Integrantes: PROXIMO AQUI
+> 
+> **Dependencias:** 
+> - JavaFX
+> - Java 23
+> 
+> Para usted Profe Linda!
 
 >[!note]
 > 
@@ -22,3 +28,12 @@
 - Diagrama que ilustra el funcionamiento del algoritmo.
 - No requiere base de datos ni ser un sistema web o móvil.
 - Es una aplicación de escritorio sencilla pero funcional.
+
+---
+## Etapas de Desarrollo
+- [X] **Sprint 1:** Base del proyecto (Lógica de procesos)
+- [X] **Sprint 2:** Algoritmo SRTF
+- [X] **Sprint 3:** Interfaz gráfica (JavaFX - Input y Output)
+- [X] **Sprint 4:** Visualización (Diagrama de Gantt)
+
+Documentación: Proximamente aquí
