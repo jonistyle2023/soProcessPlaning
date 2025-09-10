@@ -1,4 +1,4 @@
-package main.java.app;
+package main.java.ui;
 
 import javafx.scene.layout.Pane;
 import main.java.algorithms.Planificador;
@@ -13,7 +13,7 @@ import main.java.model.TramoEjecucion;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Controller {
+public class MainController {
 
     @FXML
     private ComboBox<String> algoritmoComboBox;
