@@ -5,13 +5,13 @@
 > **Realizado por:** EL MEJOR GRUPO del curso **Sistemas Operativos**, paralelo 3/1 de la carrera de Software de la UPSE.
 > 
 >Integrantes:
-> - Jonathan Panchana Rodríguez
+> - JONATHAN PANCHANA RODRÍGUEZ
 > - SAUL JOSUE VILLAO LÓPEZ
 > - HENRY BRYAN TUMBACO LINO
 > - MARCO IVÁN JACHO GUERRA
 > - JANDRY SANTIAGO JAMA PITA
 > 
->¡Para usted
+>¡Para usted profe HERMOSA¡
 
 >[!important] 
 > 
