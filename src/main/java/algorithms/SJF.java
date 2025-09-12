@@ -1,6 +1,6 @@
-package main.java.algorithms;
+package algorithms;
 
-import main.java.model.Proceso;
+import model.Proceso;
 import java.util.*;
 
 public class SJF implements Planificador {
@@ -12,7 +12,10 @@ public class SJF implements Planificador {
 
         List<Proceso> resultado = new ArrayList<>();
         int tiempoActual = 0;
-        List<Proceso> colaListos = new ArrayList<>(procesos);
+        List<Proceso> colaListos = new ArrayList<>();
+        for (Proceso p : procesos) {
+            colaListos.add(new Proceso(p.getId(), p.getTiempoEjecucion(), p.getTiempoLlegada()));
+        }
 
         while (!colaListos.isEmpty()) {
             // Tomar Procesos que ya le llegaron
@@ -47,6 +50,8 @@ public class SJF implements Planificador {
             resultado.add(elegido);
 
         }
+        // Ordenamos el resultado por ID para verlo bonito
+        resultado.sort(Comparator.comparing(Proceso::getId));
         return resultado;
     }
 

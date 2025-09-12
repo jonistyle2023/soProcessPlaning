@@ -1,7 +1,7 @@
-package main.java.algorithms;
+package algorithms;
 
-import main.java.model.Proceso;
-import main.java.model.TramoEjecucion;
+import model.Proceso;
+import model.TramoEjecucion;
 import java.util.*;
 
 public class SRTF implements Planificador {

@@ -51,7 +51,7 @@ src/
     │
     ├── ui/
     │   ├── MainApp.java            # Entry point (JavaFX Application)
-    │   ├── MainController.java     # Controlador de la interfaz
+    │   ├── MainViewController.java     # Controlador de la interfaz
     │   └── main-view.fxml          # Vista JavaFX (tabla + gantt + inputs)
     │
     └── utils/

@@ -1,85 +1,59 @@
-package main.java.model;
+package model;
+
+import javafx.beans.property.*;
 
 public class Proceso {
-    private String id;
-    private int tiempoEjecucion;
-    private int tiempoLlegada;
-    private int tiempoComienzo;
-    private int tiempoFin;
-    private int tiempoRetorno;
-    private int tiempoEspera;
-    private int tiempoEjecucionOriginal;
+    private final StringProperty nombre;
+    private final IntegerProperty tiempoLlegada;
+    private final IntegerProperty tiempoEjecucion; // Tiempo restante
+    private int tiempoEjecucionOriginal; // Tiempo total, no cambia
 
-    public Proceso(String id, int tiempoEjecución, int tiempoLlegada) {
-        this.id = id;
-        this.tiempoEjecucion = tiempoEjecución;
-        this.tiempoLlegada = tiempoLlegada;
-        this.tiempoEjecucionOriginal = tiempoEjecución;
+    // Campos para resultados
+    private final IntegerProperty tiempoComienzo = new SimpleIntegerProperty(0);
+    private final IntegerProperty tiempoFin = new SimpleIntegerProperty(0);
+    private final IntegerProperty tiempoRetorno = new SimpleIntegerProperty(0);
+    private final IntegerProperty tiempoEspera = new SimpleIntegerProperty(0);
+
+    public Proceso(String nombre, int tiempoEjecucion, int tiempoLlegada) {
+        this.nombre = new SimpleStringProperty(nombre);
+        this.tiempoLlegada = new SimpleIntegerProperty(tiempoLlegada);
+        this.tiempoEjecucion = new SimpleIntegerProperty(tiempoEjecucion);
+        this.tiempoEjecucionOriginal = tiempoEjecucion;
     }
 
-    // Getters y Setters
+    // --- Getters y Setters para Propiedades JavaFX ---
 
+    public String getNombre() { return nombre.get(); }
+    public void setNombre(String nombre) { this.nombre.set(nombre); }
+    public StringProperty nombreProperty() { return nombre; }
 
-    public String getId() {
-        return id;
-    }
+    public int getTiempoLlegada() { return tiempoLlegada.get(); }
+    public void setTiempoLlegada(int tiempoLlegada) { this.tiempoLlegada.set(tiempoLlegada); }
+    public IntegerProperty tiempoLlegadaProperty() { return tiempoLlegada; }
 
-    public int getTiempoEjecucion() {
-        return tiempoEjecucion;
-    }
+    public int getTiempoEjecucion() { return tiempoEjecucion.get(); }
+    public void setTiempoEjecucion(int tiempoEjecucion) { this.tiempoEjecucion.set(tiempoEjecucion); }
+    public IntegerProperty tiempoEjecucionProperty() { return tiempoEjecucion; }
 
-    public int getTiempoLlegada() {
-        return tiempoLlegada;
-    }
+    public int getTiempoEjecucionOriginal() { return tiempoEjecucionOriginal; }
+    public void setTiempoEjecucionOriginal(int t) { this.tiempoEjecucionOriginal = t; }
 
-    public int getTiempoComienzo() {
-        return tiempoComienzo;
-    }
+    public int getTiempoComienzo() { return tiempoComienzo.get(); }
+    public void setTiempoComienzo(int t) { this.tiempoComienzo.set(t); }
+    public IntegerProperty tiempoComienzoProperty() { return tiempoComienzo; }
 
-    public int getTiempoFin() {
-        return tiempoFin;
-    }
+    public int getTiempoFin() { return tiempoFin.get(); }
+    public void setTiempoFin(int t) { this.tiempoFin.set(t); }
+    public IntegerProperty tiempoFinProperty() { return tiempoFin; }
 
-    public int getTiempoRetorno() {
-        return tiempoRetorno;
-    }
+    public int getTiempoRetorno() { return tiempoRetorno.get(); }
+    public void setTiempoRetorno(int t) { this.tiempoRetorno.set(t); }
+    public IntegerProperty tiempoRetornoProperty() { return tiempoRetorno; }
 
-    public int getTiempoEspera() {
-        return tiempoEspera;
-    }
+    public int getTiempoEspera() { return tiempoEspera.get(); }
+    public void setTiempoEspera(int t) { this.tiempoEspera.set(t); }
+    public IntegerProperty tiempoEsperaProperty() { return tiempoEspera; }
 
-    public int getTiempoEjecucionOriginal() {
-        return tiempoEjecucionOriginal;
-    }
-
-    public void setTiempoComienzo(int tiempoComienzo) {
-        this.tiempoComienzo = tiempoComienzo;
-    }
-
-    public void setTiempoFin(int tiempoFin) {
-        this.tiempoFin = tiempoFin;
-    }
-
-    public void setTiempoRetorno(int tiempoRetorno) {
-        this.tiempoRetorno = tiempoRetorno;
-    }
-
-    public void setTiempoEspera(int tiempoEspera) {
-        this.tiempoEspera = tiempoEspera;
-    }
-
-    public void setTiempoEjecucionOriginal(int tiempoEjecucionOriginal) {
-        this.tiempoEjecucionOriginal = tiempoEjecucionOriginal;
-    }
-
-    public void setTiempoEjecucion(int tiempoEjecucion) {
-        this.tiempoEjecucion = tiempoEjecucion;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Proceso %s: Llegada=%d, Ejecución=%d, Inicio=%d, Fin=%d, Retorno=%d, Espera=%d",
-                id, tiempoLlegada, tiempoEjecucion, tiempoComienzo,
-                tiempoFin, tiempoRetorno, tiempoEspera);
-    }
+    // El ID es el nombre para simplificar
+    public String getId() { return getNombre(); }
 }

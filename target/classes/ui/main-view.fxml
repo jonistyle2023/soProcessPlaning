@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ui.MainViewController">
+
+    <!-- Zona superior: controles principales -->
+    <top>
+        <VBox spacing="10">
+            <HBox spacing="10">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Algoritmo:"/>
+                <ComboBox fx:id="algoritmoComboBox"/>
+                <Button text="Ejecutar" onAction="#onEjecutar"/>
+            </HBox>
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Exportar Excel" onAction="#onExportarExcel"/>
+                <Button text="Exportar PDF" onAction="#onExportarPDF"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Zona central: tabla de procesos -->
+    <center>
+        <VBox spacing="10" alignment="CENTER" prefWidth="600" prefHeight="400">
+            <!-- Tabla de procesos -->
+            <TableView fx:id="tablaProcesos" editable="true">
+                <columns>
+                    <TableColumn fx:id="colNombre" text="Proceso"/>
+                    <TableColumn fx:id="colLlegada" text="Llegada"/>
+                    <TableColumn fx:id="colEjecucion" text="Ejecución"/>
+                    <TableColumn fx:id="colComienzo" text="Comienzo"/>
+                    <TableColumn fx:id="colFin" text="Fin"/>
+                    <TableColumn fx:id="colRetorno" text="Retorno"/>
+                    <TableColumn fx:id="colEspera" text="Espera"/>
+                </columns>
+            </TableView>
+            <!-- Botones de control -->
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Agregar Proceso" onAction="#onAgregarProceso"/>
+                <Button text="Limpiar" onAction="#onLimpiarProcesos"/>
+                <Button text="Generar Aleatorio" onAction="#onGenerarAleatorio"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <!-- Zona inferior: Gantt -->
+    <bottom>
+        <VBox spacing="10" alignment="CENTER">
+            <Label text="Diagrama de Gantt"/>
+            <HBox fx:id="ganttBox" spacing="5" alignment="CENTER"/>
+        </VBox>
+    </bottom>
+
+</BorderPane>
