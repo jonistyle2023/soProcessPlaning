@@ -4,6 +4,11 @@ import model.Proceso;
 import model.TramoEjecucion;
 import java.util.*;
 
+/**
+ * Implementación del algoritmo de planificación Shortest Remaining Time First (SRTF).
+ * Es un algoritmo apropiativo donde se selecciona el proceso con el tiempo de ejecución restante más corto entre los que han llegado.
+ */
+
 public class SRTF implements Planificador {
 
     private final List<TramoEjecucion> tramos = new ArrayList<>();
@@ -36,7 +41,7 @@ public class SRTF implements Planificador {
             }
             // Escoger el de menor tiempo restante
             disponibles.sort(Comparator.comparingInt(Proceso::getTiempoEjecucion));
-            Proceso siguiente = disponibles.isEmpty() ? null : disponibles.get(0);
+            Proceso siguiente = disponibles.isEmpty() ? null : disponibles.getFirst();
 
             if (siguiente != actual) {
                 // Hubo cambio de contexto

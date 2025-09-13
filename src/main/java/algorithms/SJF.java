@@ -3,6 +3,11 @@ package algorithms;
 import model.Proceso;
 import java.util.*;
 
+/**
+ * Implementación del algoritmo de planificación Shortest Job First (SJF).
+ * Es un algoritmo no apropiativo donde se selecciona el proceso con el tiempo de ejecución más corto entre los que han llegado.
+ */
+
 public class SJF implements Planificador {
 
     @Override

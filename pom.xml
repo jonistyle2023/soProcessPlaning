@@ -111,7 +111,8 @@
                     <input>${project.build.directory}</input>
                     <name>Planificador</name>
                     <arguments>
-                        --module-path C:/dev/javafx-sdk-24.0.2/lib --add-modules javafx.controls,javafx.fxml --main-jar soProcessPlanning-1.0.0-jar-with-dependencies.jar --main-class ui.MainApp
+                        --module-path C:/dev/javafx-sdk-24.0.2/lib --add-modules javafx.controls,javafx.fxml --main-jar
+                        soProcessPlanning-1.0.0-jar-with-dependencies.jar --main-class ui.MainApp
                     </arguments>
                 </configuration>
             </plugin>

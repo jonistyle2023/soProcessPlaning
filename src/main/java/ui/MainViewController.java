@@ -1,14 +1,11 @@
 package ui;
 
-// local
-import algorithms.FCFS;
-import algorithms.Planificador;
-import algorithms.SJF;
-import algorithms.SRTF;
+// Importaciones locales
+import algorithms.*;
 import model.Proceso;
 import model.TramoEjecucion;
 
-// fx
+// Importaciones de JavaFX
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.geometry.Pos;
@@ -28,21 +25,21 @@ import javafx.stage.FileChooser;
 import javafx.util.converter.IntegerStringConverter;
 import javafx.scene.control.*;
 
-// excel
+// Importaciones para exportar a Excel
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 
-// pdf
+// Importaciones para exportar a PDF
 import org.openpdf.text.Document;
 import org.openpdf.text.Element;
 import org.openpdf.text.Paragraph;
 import org.openpdf.text.pdf.PdfWriter;
 import org.openpdf.text.pdf.PdfPTable;
 
-// java
+// Importaciones de Java
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.*;
@@ -50,6 +47,7 @@ import java.util.stream.Collectors;
 
 public class MainViewController {
 
+    // Componentes FXML
     @FXML private ComboBox<String> algoritmoComboBox;
     @FXML private TableView<Proceso> tablaProcesos;
     @FXML private TableColumn<Proceso, String> colNombre;
@@ -61,11 +59,14 @@ public class MainViewController {
     @FXML private TableColumn<Proceso, Integer> colEspera;
     @FXML private HBox ganttBox;
 
+    // Variables
     private final ObservableList<Proceso> listaProcesos = FXCollections.observableArrayList();
     private final Map<String, Planificador> algoritmos = new LinkedHashMap<>();
 
     @FXML
     public void initialize() {
+        algoritmos.put ("Aleatorio", new RandomOrder());
+        algoritmos.put("Round Robin (Cíclico)", new RoundRobin());
         algoritmos.put("FCFS", new FCFS());
         algoritmos.put("SJF", new SJF());
         algoritmos.put("SRTF", new SRTF());
@@ -76,6 +77,7 @@ public class MainViewController {
         configurarTabla();
     }
 
+    // Configuración de la tabla de procesos
     private void configurarTabla() {
         tablaProcesos.setItems(listaProcesos);
         tablaProcesos.setEditable(true);
@@ -127,6 +129,7 @@ public class MainViewController {
         }
     }
 
+    // Ejecución del algoritmo seleccionado y actualización de la tabla y diagrama de Gantt
     @FXML
     private void onEjecutar() {
         if (listaProcesos.isEmpty()) {
@@ -154,6 +157,7 @@ public class MainViewController {
         }
     }
 
+    // Dibujar el diagrama de Gantt
     private void dibujarGantt(List<Proceso> resultado) {
         ganttBox.getChildren().clear();
         if (resultado == null || resultado.isEmpty()) return;
@@ -196,7 +200,7 @@ public class MainViewController {
         animarBloquesGantt(bloquesGantt, 0);
     }
 
-    // Este método es crucial para la animación y devuelve un StackPane para poder animar la barra
+    // Animación del dibujo de Gantt
     private StackPane crearBloqueGantt(String nombre, int inicio, int fin, String color) {
         double anchoReal = (fin - inicio) * 25.0; // Ancho final deseado
 
@@ -234,6 +238,7 @@ public class MainViewController {
         return stack;
     }
 
+    // Animación secuencial de los bloques de Gantt
     private void animarBloquesGantt(List<StackPane> bloques, int index) {
         if (index < bloques.size()) {
             StackPane currentBlock = bloques.get(index);
@@ -273,6 +278,7 @@ public class MainViewController {
         alert.showAndWait();
     }
 
+    // Exportar a Excel
     @FXML
     private void onExportarExcel() {
         if (listaProcesos.isEmpty()) {
@@ -313,6 +319,7 @@ public class MainViewController {
         }
     }
 
+    // Exportar a PDF
     @FXML
     private void onExportarPDF() {
         if (listaProcesos.isEmpty()) {

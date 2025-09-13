@@ -12,16 +12,15 @@
 > - Jacho Guerra Marco Iván - **(Product Owner)**
 > - Jama Pita Jandry Santiago - **(Tester y Feedback)**
 > 
->¡Para usted profe HERMOSA! :D
+>**_¡Para usted profe HERMOSA!_** <3
 
 >[!important] 
 > 
 > **Dependencias:**
 > - Java 23: https://www.oracle.com/java/technologies/downloads/
-> - JavaFX: https://openjfx.io/openjfx-docs/#install-java
+> - JavaFX: https://gluonhq.com/products/javafx/
 >   - `javafx-controls`
 >   - `javafx-fxml`
->
 
 >[!TIP]
 > 
@@ -31,32 +30,40 @@
 
 ## **Descripción del Proyecto**
 
-Este Paila proyecto consiste en la implementación de los siguientes algoritmos de planificación:
+Este proyecto consiste en la implementación de los siguientes algoritmos de planificación:
 
+- **Random o "Aleatorio":** Simplemente, mezcla los procesos y los ejecuta en ese orden, calculando los tiempos como en FCFS.
+- **Algoritmo RR** (Round Robin o "Reloj de Ronda") - **_Ciclico_**
 - **Algoritmo SJF** (Shortest Job First o "Primero el Trabajo Más Corto")
 - **Algoritmo SRTF** (Shortest Remaining Time First o "Primero el Tiempo Restante Más Corto")
+- **Algoritmo FCFS** (First Come First Served o "Primero En Esperar")
 
 ### Estructura del Proyecto
 
-```bash
-src/
-└── app/
-    ├── algorithms/
-    │   ├── Planificador.java       # Interfaz común para algoritmos
-    │   ├── SJF.java                # Implementación algoritmo SJF
-    │   └── SRTF.java               # Implementación algoritmo SRTF
-    │
-    ├── model/
-    │   ├── Proceso.java            # Representa un proceso
-    │   └── TramoEjecucion.java     # Intervalos de ejecución (para SRTF)
-    │
-    ├── ui/
-    │   ├── MainApp.java            # Entry point (JavaFX Application)
-    │   ├── MainViewController.java     # Controlador de la interfaz
-    │   └── main-view.fxml          # Vista JavaFX (tabla + gantt + inputs)
-    │
-    └── utils/
-        └── (futuro: clases helper) # Por si añadimos validaciones, etc.
+```txt
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   ├── algorithms
+│   │   │   │   ├── FCFS                # Algoritmo First-Come, First-Served
+│   │   │   │   ├── Planificador        # Clase principal del planificador
+│   │   │   │   ├── RandomOrder         # Planificación en orden aleatorio
+│   │   │   │   ├── RoundRobin          # Algoritmo Round Robin
+│   │   │   │   ├── SJF                 # Algoritmo Shortest Job First
+│   │   │   │   └── SRTF                # Algoritmo Shortest Remaining Time First
+│   │   │   ├── model                   # Modelos de datos
+│   │   │   │   ├── Proceso             # Representación de un proceso
+│   │   │   │   └── TramoEjecucion      # Segmento de ejecución de un proceso
+│   │   │   ├── Launcher                # Clases para lanzar la aplicación
+│   │   │   │   ├── MainApp             # Clase principal de la aplicación
+│   │   │   │   └── MainViewController  # Controlador de la vista principal
+│   │   │   └── resources               # Recursos de la aplicación (ej. imágenes, archivos de configuración)
+│   │   │   └── ui                      # Componentes de la interfaz de usuario
+│   │   │       └── main-view.fxml      # Archivo FXML para la vista principal
+│   │   └── utils                       # Clases de utilidad
+│   └── META-INF
+│       └── MANIFEST.MF                 # Archivo de manifiesto de la aplicación
+└── README.md                           # Este archivo
 ```
 
 **Características:**
@@ -66,17 +73,6 @@ src/
 - Diagrama que ilustra el funcionamiento del algoritmo.
 - No requiere base de datos ni ser un sistema web o móvil.
 - Es una aplicación de escritorio sencilla pero funcional.
-
-**Limitaciones:**
-- Por ahora los procesos se cargan estáticos en el controlador (`A, B, C, D, E`).
-- No hay validación de entradas incorrectas en la GUI (se puede añadir en `utils`).
-- El gráfico Gantt es básico (Canvas/Pane), no usa librerías gráficas externas.
-
-**Posibles mejoras a futuro:**
-- Permitir al usuario ingresar procesos dinámicamente en la tabla.
-- Exportar resultados a PDF/Excel.
-- Implementar más algoritmos (FCFS, Round Robin).
-- Añadir animaciones en el Gantt para hacerlo más didáctico.
 
 ---
 ## Etapas de Desarrollo

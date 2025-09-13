@@ -3,17 +3,19 @@ package model;
 import javafx.beans.property.*;
 
 public class Proceso {
+    // Campos de la clase
     private final StringProperty nombre;
     private final IntegerProperty tiempoLlegada;
-    private final IntegerProperty tiempoEjecucion; // Tiempo restante
-    private int tiempoEjecucionOriginal; // Tiempo total, no cambia
+    private final IntegerProperty tiempoEjecucion; //
+    private int tiempoEjecucionOriginal;
 
-    // Campos para resultados
+    // Campos de los resultados
     private final IntegerProperty tiempoComienzo = new SimpleIntegerProperty(0);
     private final IntegerProperty tiempoFin = new SimpleIntegerProperty(0);
     private final IntegerProperty tiempoRetorno = new SimpleIntegerProperty(0);
     private final IntegerProperty tiempoEspera = new SimpleIntegerProperty(0);
 
+    // Constructor
     public Proceso(String nombre, int tiempoEjecucion, int tiempoLlegada) {
         this.nombre = new SimpleStringProperty(nombre);
         this.tiempoLlegada = new SimpleIntegerProperty(tiempoLlegada);
@@ -22,7 +24,6 @@ public class Proceso {
     }
 
     // --- Getters y Setters para Propiedades JavaFX ---
-
     public String getNombre() { return nombre.get(); }
     public void setNombre(String nombre) { this.nombre.set(nombre); }
     public StringProperty nombreProperty() { return nombre; }
