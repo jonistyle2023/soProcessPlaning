@@ -4,14 +4,15 @@
 > 
 > **Realizado por:** EL MEJOR GRUPO del curso **Sistemas Operativos**, paralelo 3/1 de la carrera de Software de la UPSE.
 > 
->Integrantes:
-> - JONATHAN PANCHANA RODRÍGUEZ
-> - SAUL JOSUE VILLAO LÓPEZ
-> - HENRY BRYAN TUMBACO LINO
-> - MARCO IVÁN JACHO GUERRA
-> - JANDRY SANTIAGO JAMA PITA
+>**Integrantes y roles:**
 > 
->¡Para usted profe HERMOSA¡
+> - Panchana Rodríguez Jonathan David - **(Desarrollador)**
+> - Villao López Saul Josue - **(Documentación)**
+> - Tumbaco Lino Henry Bryan - **(Documentación y Tester)**
+> - Jacho Guerra Marco Iván - **(Product Owner)**
+> - Jama Pita Jandry Santiago - **(Tester y Feedback)**
+> 
+>¡Para usted profe HERMOSA! :D
 
 >[!important] 
 > 
@@ -83,6 +84,10 @@ src/
 - [X] **Sprint 2:** Algoritmo SRTF
 - [X] **Sprint 3:** Interfaz gráfica (JavaFX - Input y Output)
 - [X] **Sprint 4:** Visualización (Diagrama de Gantt)
+- [X] **Sprint 5:** UI dinámica
+- [X] **Sprint 6:** Exportación
+- [X] **Sprint 7:** Animaciones
+- [X] **Sprint 8:** Diseño Responsive
 
 ---
 ## Diagrama de Flujo General
@@ -97,5 +102,30 @@ _Este diagrama representa la estructura de clases del proyecto **(arquitectura o
 _Para mostrar cómo interactuan UI y lógica._
 ![secuencia.png](img/secuencia.png)
 
-jpackage --input target --name PlanificadorProcesos --main-jar soProcessPlanning-1.0.0.jar --main-class ui.MainApp --type exe --module-path C:/dev/javafx-sdk-24.0.2/lib --add-modules javafx.controls,javafx.fxml
-jpackage --input target --name Planificador --main-jar soProcessPlanning-1.0.0.jar --main-class ui.MainApp --type exe --module-path C:/dev/javafx-sdk-24.0.2/lib --add-modules javafx.controls,javafx.fxml
+---
+
+## **Crear el ejecutable jlink + jpackage**
+
+### 1. Crear un runtime mínimo con `jlink`
+
+**Comando ejemplo 1 (PowerShell con escape de línea ```):**
+```bash
+jlink --module-path "%JAVA_HOME%\jmods";"C:\dev\javafx-sdk-24.0.2\jmods" `
+      --add-modules java.base,java.desktop,javafx.controls,javafx.fxml `
+      --output runtime
+```
+
+**Comando ejemplo 2 (PowerShell en una línea):**
+```bash
+jlink --module-path "$env:JAVA_HOME\jmods;C:\dev\javafx-sdk-24.0.2\jmods" --add-modules java.base,java.desktop,javafx.controls,javafx.fxml --output runtime
+
+```
+**Resultado:** Carpeta `runtime` que contiene un Java mínimo listo para ejecutar tu app.
+
+### 2. Crear el instalador con `jpackage`
+
+```bash
+jpackage --name soProccessPlanning --input target --main-jar soProcessPlanning-1.0.0.jar --main-class ui.MainApp --runtime-image runtime --type exe --vendor "Jonathan Panchana" --win-shortcut --win-menu --icon icon.ico
+```
+
+**Resultado:** Instalador .exe listo para distribuir y ejecutar en cualquier PC con Windows, sin necesidad de instalar Java ni JavaFX.
