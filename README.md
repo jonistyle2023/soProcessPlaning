@@ -96,3 +96,6 @@ _Este diagrama representa la estructura de clases del proyecto **(arquitectura o
 ## Diagrama de Secuencia
 _Para mostrar cómo interactuan UI y lógica._
 ![secuencia.png](img/secuencia.png)
+
+jpackage --input target --name PlanificadorProcesos --main-jar soProcessPlanning-1.0.0.jar --main-class ui.MainApp --type exe --module-path C:/dev/javafx-sdk-24.0.2/lib --add-modules javafx.controls,javafx.fxml
+jpackage --input target --name Planificador --main-jar soProcessPlanning-1.0.0.jar --main-class ui.MainApp --type exe --module-path C:/dev/javafx-sdk-24.0.2/lib --add-modules javafx.controls,javafx.fxml
