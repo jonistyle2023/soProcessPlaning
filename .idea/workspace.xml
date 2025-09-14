@@ -5,37 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3747dd7a-3522-4cee-af84-d3bb3b4fb5c1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/soProcessPlanning.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/soProcessPlanning_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/soProcessPlanning.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/FCFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/FCFS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/RandomOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/RandomOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/algorithms/RoundRobin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/algorithms/RoundRobin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Proceso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Proceso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ui/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ui/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ui/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/algorithms/FCFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/algorithms/FCFS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/algorithms/RandomOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/algorithms/RandomOrder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/algorithms/RoundRobin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/algorithms/RoundRobin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/ui/main-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Proceso.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Proceso.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ui/MainApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ui/MainApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ui/MainViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ui/MainViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ui/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ui/main-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/soProcessPlanning-1.0.0-jar-with-dependencies.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/soProcessPlanning-1.0.0.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +92,7 @@
       <updated>1757824054992</updated>
       <workItem from="1757824056945" duration="1130000" />
       <workItem from="1757825207215" duration="924000" />
-      <workItem from="1757866732222" duration="842000" />
+      <workItem from="1757866732222" duration="2633000" />
     </task>
     <servers />
   </component>

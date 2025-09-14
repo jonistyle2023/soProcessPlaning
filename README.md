@@ -92,7 +92,9 @@ _Representa la lógica cuando el usuario selecciona un algoritmo y ejecuta la si
 
 ## Diagrama de Clases 
 _Este diagrama representa la estructura de clases del proyecto **(arquitectura orientada a objetos).**_
-![clases.png](img/clases.png)
+![clasesFinal.png](img/clasesFinal.png)
+**_Nota:_** El programa sigue una lógica orientada a objetos donde cada algoritmo de planificación hereda o implementa una interfaz o clase base `Planificador`. Los algoritmos
+están en el paquete `algorithms`, los modelos en `model` y la vista/controlador en `ui`.
 
 ## Diagrama de Secuencia
 _Para mostrar cómo interactuan UI y lógica._
