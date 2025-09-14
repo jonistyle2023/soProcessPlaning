@@ -1,6 +1,7 @@
 ### IntelliJ IDEA ###
 out/
 runtime/
+.codeviz/
 !**/src/main/**/out/
 !**/src/test/**/out/
 

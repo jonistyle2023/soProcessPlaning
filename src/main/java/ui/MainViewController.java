@@ -2,6 +2,7 @@ package ui;
 
 // Importaciones locales
 import algorithms.*;
+import javafx.beans.property.SimpleStringProperty;
 import model.Proceso;
 import model.TramoEjecucion;
 
@@ -33,11 +34,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 
 // Importaciones para exportar a PDF
-import org.openpdf.text.Document;
-import org.openpdf.text.Element;
-import org.openpdf.text.Paragraph;
-import org.openpdf.text.pdf.PdfWriter;
-import org.openpdf.text.pdf.PdfPTable;
+import com.lowagie.text.Document;
+import com.lowagie.text.Element;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.pdf.PdfPTable;
 
 // Importaciones de Java
 import java.io.File;
@@ -53,8 +54,8 @@ public class MainViewController {
     @FXML private TableColumn<Proceso, String> colNombre;
     @FXML private TableColumn<Proceso, Integer> colLlegada;
     @FXML private TableColumn<Proceso, Integer> colEjecucion;
-    @FXML private TableColumn<Proceso, Integer> colComienzo;
-    @FXML private TableColumn<Proceso, Integer> colFin;
+    @FXML private TableColumn<Proceso, String> colComienzo;
+    @FXML private TableColumn<Proceso, String> colFin;
     @FXML private TableColumn<Proceso, Integer> colRetorno;
     @FXML private TableColumn<Proceso, Integer> colEspera;
     @FXML private HBox ganttBox;
@@ -98,8 +99,8 @@ public class MainViewController {
             p.setTiempoEjecucionOriginal(event.getNewValue());
         });
 
-        colComienzo.setCellValueFactory(data -> data.getValue().tiempoComienzoProperty().asObject());
-        colFin.setCellValueFactory(data -> data.getValue().tiempoFinProperty().asObject());
+        colComienzo.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getTiemposComienzoStr()));
+        colFin.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getTiemposFinStr()));
         colRetorno.setCellValueFactory(data -> data.getValue().tiempoRetornoProperty().asObject());
         colEspera.setCellValueFactory(data -> data.getValue().tiempoEsperaProperty().asObject());
     }
@@ -304,8 +305,8 @@ public class MainViewController {
                     row.createCell(0).setCellValue(p.getNombre());
                     row.createCell(1).setCellValue(p.getTiempoLlegada());
                     row.createCell(2).setCellValue(p.getTiempoEjecucionOriginal());
-                    row.createCell(3).setCellValue(p.getTiempoComienzo());
-                    row.createCell(4).setCellValue(p.getTiempoFin());
+                    row.createCell(3).setCellValue(p.getTiemposComienzoStr());
+                    row.createCell(4).setCellValue(p.getTiemposFinStr());
                     row.createCell(5).setCellValue(p.getTiempoRetorno());
                     row.createCell(6).setCellValue(p.getTiempoEspera());
                 }
@@ -347,8 +348,8 @@ public class MainViewController {
                     table.addCell(p.getNombre());
                     table.addCell(String.valueOf(p.getTiempoLlegada()));
                     table.addCell(String.valueOf(p.getTiempoEjecucionOriginal()));
-                    table.addCell(String.valueOf(p.getTiempoComienzo()));
-                    table.addCell(String.valueOf(p.getTiempoFin()));
+                    table.addCell(p.getTiemposComienzoStr());
+                    table.addCell(p.getTiemposFinStr());
                     table.addCell(String.valueOf(p.getTiempoRetorno()));
                     table.addCell(String.valueOf(p.getTiempoEspera()));
                 }

@@ -102,7 +102,13 @@ _Para mostrar cómo interactuan UI y lógica._
 
 ## **Crear el ejecutable jlink + jpackage**
 
-### 1. Crear un runtime mínimo con `jlink`
+### 1. Compilar el proyecto con Maven
+
+```bash
+mvn clean package
+```
+
+### 2. Crear un runtime mínimo con `jlink`
 
 **Comando ejemplo 1 (PowerShell con escape de línea ```):**
 ```bash
@@ -118,10 +124,10 @@ jlink --module-path "$env:JAVA_HOME\jmods;C:\dev\javafx-sdk-24.0.2\jmods" --add-
 ```
 **Resultado:** Carpeta `runtime` que contiene un Java mínimo listo para ejecutar tu app.
 
-### 2. Crear el instalador con `jpackage`
+### 3. Crear el instalador con `jpackage`
 
 ```bash
-jpackage --name soProccessPlanning --input target --main-jar soProcessPlanning-1.0.0.jar --main-class ui.MainApp --runtime-image runtime --type exe --vendor "Jonathan Panchana" --win-shortcut --win-menu --icon icon.ico
+jpackage --name soProccessPlanning --input target --main-jar soProcessPlanning-1.2.0.jar --main-class ui.MainApp --runtime-image runtime --type exe --vendor "Jonathan Panchana" --win-shortcut --win-menu --icon icon.ico
 ```
 
 **Resultado:** Instalador .exe listo para distribuir y ejecutar en cualquier PC con Windows, sin necesidad de instalar Java ni JavaFX.

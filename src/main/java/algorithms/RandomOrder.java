@@ -20,9 +20,11 @@ public class RandomOrder implements Planificador {
         int tiempo = 0;
         for (Proceso p : procesos) {
             tiempo = Math.max(tiempo, p.getTiempoLlegada());
-            p.setTiempoComienzo(tiempo);
+            p.addTiempoComienzo(tiempo); // Registrar comienzo
+            p.setTiempoComienzo(tiempo); // Para compatibilidad
             tiempo += p.getTiempoEjecucion();
-            p.setTiempoFin(tiempo);
+            p.addTiempoFin(tiempo); // Registrar fin
+            p.setTiempoFin(tiempo); // Para compatibilidad
             p.setTiempoRetorno(p.getTiempoFin() - p.getTiempoLlegada());
             p.setTiempoEspera(p.getTiempoRetorno() - p.getTiempoEjecucionOriginal());
         }

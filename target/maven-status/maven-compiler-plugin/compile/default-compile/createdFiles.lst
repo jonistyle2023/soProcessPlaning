@@ -1,9 +1,11 @@
 model\TramoEjecucion.class
-model\Proceso.class
-algorithms\SRTF.class
+algorithms\RandomOrder.class
 algorithms\FCFS.class
 ui\Launcher.class
+ui\MainViewController.class
+model\Proceso.class
+algorithms\SRTF.class
+algorithms\RoundRobin.class
 algorithms\Planificador.class
 ui\MainApp.class
 algorithms\SJF.class
-ui\MainViewController.class

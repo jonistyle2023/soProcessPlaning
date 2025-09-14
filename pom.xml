@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.tuempresa.app</groupId>
+    <groupId>grupo5</groupId>
     <artifactId>soProcessPlanning</artifactId>
-    <version>1.0.0</version>
+    <version>1.2.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -30,7 +30,7 @@
         <dependency>
             <groupId>com.github.librepdf</groupId>
             <artifactId>openpdf</artifactId>
-            <version>3.0.0</version>
+            <version>1.3.30</version>
         </dependency>
 
         <dependency>
@@ -112,7 +112,7 @@
                     <name>Planificador</name>
                     <arguments>
                         --module-path C:/dev/javafx-sdk-24.0.2/lib --add-modules javafx.controls,javafx.fxml --main-jar
-                        soProcessPlanning-1.0.0-jar-with-dependencies.jar --main-class ui.MainApp
+                        soProcessPlanning-1.2.0-jar-with-dependencies.jar --main-class ui.MainApp
                     </arguments>
                 </configuration>
             </plugin>

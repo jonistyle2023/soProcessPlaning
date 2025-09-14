@@ -49,12 +49,11 @@ public class RoundRobin implements Planificador {
                 continue;
             }
             Proceso actual = cola.poll();
-            if (actual.getTiempoComienzo() == 0 && tiempo >= actual.getTiempoLlegada()) {
-                actual.setTiempoComienzo(tiempo);
-            }
             int ejecucion = Math.min(quantum, actual.getTiempoEjecucion());
-            actual.setTiempoEjecucion(actual.getTiempoEjecucion() - ejecucion);
+            actual.addTiempoComienzo(tiempo);
             tiempo += ejecucion;
+            actual.addTiempoFin(tiempo);
+            actual.setTiempoEjecucion(actual.getTiempoEjecucion() - ejecucion);
 
             while (index < procesos.size() && procesos.get(index).getTiempoLlegada() <= tiempo) {
                 cola.add(procesos.get(index));

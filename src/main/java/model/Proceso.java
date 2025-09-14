@@ -1,6 +1,10 @@
 package model;
 
 import javafx.beans.property.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Proceso {
     // Campos de la clase
@@ -14,6 +18,9 @@ public class Proceso {
     private final IntegerProperty tiempoFin = new SimpleIntegerProperty(0);
     private final IntegerProperty tiempoRetorno = new SimpleIntegerProperty(0);
     private final IntegerProperty tiempoEspera = new SimpleIntegerProperty(0);
+
+    private final List<Integer> tiemposComienzo = new ArrayList<>();
+    private final List<Integer> tiemposFin = new ArrayList<>();
 
     // Constructor
     public Proceso(String nombre, int tiempoEjecucion, int tiempoLlegada) {
@@ -57,4 +64,19 @@ public class Proceso {
 
     // El ID es el nombre para simplificar
     public String getId() { return getNombre(); }
+
+    public void addTiempoComienzo(int t) { tiemposComienzo.add(t); }
+    public void addTiempoFin(int t) { tiemposFin.add(t); }
+    public List<Integer> getTiemposComienzo() { return tiemposComienzo; }
+    public List<Integer> getTiemposFin() { return tiemposFin; }
+
+    public String getTiemposComienzoStr() {
+        return tiemposComienzo.isEmpty() ? String.valueOf(getTiempoComienzo()) :
+                tiemposComienzo.stream().map(String::valueOf).collect(Collectors.joining("-"));
+    }
+    public String getTiemposFinStr() {
+        return tiemposFin.isEmpty() ? String.valueOf(getTiempoFin()) :
+                tiemposFin.stream().map(String::valueOf).collect(Collectors.joining("-"));
+    }
+
 }
