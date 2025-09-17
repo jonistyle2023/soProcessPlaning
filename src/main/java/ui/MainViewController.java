@@ -2,6 +2,7 @@ package ui;
 
 // Importaciones locales
 import algorithms.*;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import model.Proceso;
 import model.TramoEjecucion;
@@ -63,6 +64,7 @@ public class MainViewController {
     // Variables
     private final ObservableList<Proceso> listaProcesos = FXCollections.observableArrayList();
     private final Map<String, Planificador> algoritmos = new LinkedHashMap<>();
+    private boolean ignorarCambioAlgoritmo = false;
 
     @FXML
     public void initialize() {
@@ -74,7 +76,30 @@ public class MainViewController {
 
         algoritmoComboBox.getItems().addAll(algoritmos.keySet());
         algoritmoComboBox.getSelectionModel().selectFirst();
-
+        algoritmoComboBox.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if (ignorarCambioAlgoritmo) {
+                ignorarCambioAlgoritmo = false;
+                return;
+            }
+            if (!listaProcesos.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                        "Esta acción borrará los datos de la tabla. Se recomienda guardar los resultados antes de cambiar de algoritmo.\n¿Desea continuar?\n",
+                        ButtonType.YES, ButtonType.NO);
+                alert.setHeaderText("Advertencia");
+                alert.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.YES) {
+                        listaProcesos.clear();
+                        ganttBox.getChildren().clear();
+                    } else {
+                        ignorarCambioAlgoritmo = true;
+                        algoritmoComboBox.getSelectionModel().select(oldVal);
+                    }
+                });
+            } else {
+                listaProcesos.clear();
+                ganttBox.getChildren().clear();
+            }
+        });
         configurarTabla();
     }
 
@@ -91,7 +116,7 @@ public class MainViewController {
         colLlegada.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         colLlegada.setOnEditCommit(event -> event.getRowValue().setTiempoLlegada(event.getNewValue()));
 
-        colEjecucion.setCellValueFactory(data -> data.getValue().tiempoEjecucionProperty().asObject());
+        colEjecucion.setCellValueFactory(data -> new SimpleIntegerProperty(data.getValue().getTiempoEjecucionOriginal()).asObject());
         colEjecucion.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         colEjecucion.setOnEditCommit(event -> {
             Proceso p = event.getRowValue();

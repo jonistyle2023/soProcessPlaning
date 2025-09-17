@@ -30,7 +30,11 @@ public class RoundRobin implements Planificador {
     public List<Proceso> ejecutar(List<Proceso> procesosOriginales) {
         List<Proceso> procesos = new ArrayList<>();
         for (Proceso p : procesosOriginales) {
-            procesos.add(new Proceso(p.getNombre(), p.getTiempoEjecucion(), p.getTiempoLlegada()));
+            procesos.add(new Proceso(
+                    p.getNombre(),
+                    p.getTiempoEjecucionOriginal(),
+                    p.getTiempoLlegadaOriginal()
+            ));
         }
 
         Queue<Proceso> cola = new LinkedList<>();

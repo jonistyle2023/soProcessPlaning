@@ -12,6 +12,7 @@ public class Proceso {
     private final IntegerProperty tiempoLlegada;
     private final IntegerProperty tiempoEjecucion; //
     private int tiempoEjecucionOriginal;
+    private int tiempoLlegadaOriginal;
 
     // Campos de los resultados
     private final IntegerProperty tiempoComienzo = new SimpleIntegerProperty(0);
@@ -28,7 +29,11 @@ public class Proceso {
         this.tiempoLlegada = new SimpleIntegerProperty(tiempoLlegada);
         this.tiempoEjecucion = new SimpleIntegerProperty(tiempoEjecucion);
         this.tiempoEjecucionOriginal = tiempoEjecucion;
+        this.tiempoLlegadaOriginal = tiempoLlegada;
     }
+
+    public int getTiempoLlegadaOriginal() { return tiempoLlegadaOriginal; }
+    public void setTiempoLlegadaOriginal(int t) { this.tiempoLlegadaOriginal = t; }
 
     // --- Getters y Setters para Propiedades JavaFX ---
     public String getNombre() { return nombre.get(); }
@@ -78,5 +83,4 @@ public class Proceso {
         return tiemposFin.isEmpty() ? String.valueOf(getTiempoFin()) :
                 tiemposFin.stream().map(String::valueOf).collect(Collectors.joining("-"));
     }
-
 }

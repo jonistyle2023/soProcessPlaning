@@ -107,16 +107,25 @@
     </VBox>
 
     <!-- Footer -->
-    <HBox alignment="CENTER_RIGHT" spacing="10">
+    <HBox spacing="10">
         <children>
+            <!-- Izquierda: Nombre y versión -->
+            <TextFlow>
+                <Text text="Software Planificador de Procesos " style="-fx-fill: #888888; -fx-font-size: 12px;"/>
+                <Text text="v1.3" style="-fx-font-weight: bold; -fx-fill: #888888; -fx-font-size: 13px;"/>
+            </TextFlow>
+            <!-- Centro: Espaciador -->
+            <HBox HBox.hgrow="ALWAYS"/>
+            <!-- Derecha: Créditos -->
             <TextFlow>
                 <Text text="Desarrollado por " style="-fx-fill: #888888; -fx-font-size: 12px;"/>
-                <Text text="Jonistyle" style="-fx-font-weight: bold; -fx-fill: #888888; -fx-font-size: 12px;"/>
+                <Text text="Grupo #6 - Sistemas operatívos 3/1" style="-fx-font-weight: bold; -fx-fill: #888888; -fx-font-size: 12px;"/>
             </TextFlow>
         </children>
         <padding>
             <Insets top="10"/>
         </padding>
     </HBox>
+
 
 </VBox>

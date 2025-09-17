@@ -1,8 +1,10 @@
 # Desarrollo Software para Planificación de Procesos
 
+## Información General
+
 >[!note]
 > 
-> **Realizado por:** EL MEJOR GRUPO del curso **Sistemas Operativos**, paralelo 3/1 de la carrera de Software de la UPSE.
+> **_Grupo #5_**, Sistemas Operativos - Software 3/1.
 > 
 >**Integrantes y roles:**
 > 
@@ -11,12 +13,10 @@
 > - Tumbaco Lino Henry Bryan - **(Documentación y Tester)**
 > - Jacho Guerra Marco Iván - **(Product Owner)**
 > - Jama Pita Jandry Santiago - **(Tester y Feedback)**
-> 
->**_¡Para usted profe HERMOSA!_** <3
 
 >[!important] 
 > 
-> **Dependencias:**
+> **Dependencias para el desarrollo:**
 > - Java 23: https://www.oracle.com/java/technologies/downloads/
 > - JavaFX: https://gluonhq.com/products/javafx/
 >   - `javafx-controls`
