@@ -1,6 +1,7 @@
 package algorithms;
 
 import model.Proceso;
+import model.TramoEjecucion;
 import java.util.*;
 
 /**
@@ -19,6 +20,13 @@ public class RoundRobin implements Planificador {
      */
     private int quantum = 2; // Se puede ajustar el quantum según lo necesites
 
+    // Tramos de ejecución reales (con interrupciones) para dibujar el Gantt correctamente
+    private final List<TramoEjecucion> tramos = new ArrayList<>();
+
+    public List<TramoEjecucion> getTramos() {
+        return tramos;
+    }
+
     public RoundRobin() {
     }
 
@@ -26,8 +34,17 @@ public class RoundRobin implements Planificador {
         this.quantum = quantum;
     }
 
+    public int getQuantum() {
+        return quantum;
+    }
+
+    public void setQuantum(int quantum) {
+        this.quantum = quantum;
+    }
+
     @Override
     public List<Proceso> ejecutar(List<Proceso> procesosOriginales) {
+        tramos.clear();
         List<Proceso> procesos = new ArrayList<>();
         for (Proceso p : procesosOriginales) {
             procesos.add(new Proceso(
@@ -55,6 +72,7 @@ public class RoundRobin implements Planificador {
             Proceso actual = cola.poll();
             int ejecucion = Math.min(quantum, actual.getTiempoEjecucion());
             actual.addTiempoComienzo(tiempo);
+            tramos.add(new TramoEjecucion(actual.getId(), tiempo, tiempo + ejecucion));
             tiempo += ejecucion;
             actual.addTiempoFin(tiempo);
             actual.setTiempoEjecucion(actual.getTiempoEjecucion() - ejecucion);

@@ -67,11 +67,21 @@ public class SRTF implements Planificador {
             tramos.add(new TramoEjecucion(actual.getId(), inicioRafaga, tiempo));
         }
 
+        // Registrar en cada proceso sus tramos reales (puede haber varios por las interrupciones)
+        Map<String, Proceso> porId = new HashMap<>();
+        for (Proceso p : lista) {
+            porId.put(p.getId(), p);
+        }
+        for (TramoEjecucion t : tramos) {
+            Proceso p = porId.get(t.getId());
+            p.addTiempoComienzo(t.getInicio());
+            p.addTiempoFin(t.getFin());
+        }
+
         // Calcular tiempos derivados
         for (Proceso p : lista) {
             p.setTiempoRetorno(p.getTiempoFin() - p.getTiempoLlegada());
             p.setTiempoEspera(p.getTiempoRetorno() - p.getTiempoEjecucionOriginal());
-            p.setTiempoComienzo(p.getTiempoFin() - p.getTiempoEjecucionOriginal() - p.getTiempoEspera());
         }
 
         // Ordenamos el resultado por ID para verlo bonito

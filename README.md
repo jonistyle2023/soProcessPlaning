@@ -3,16 +3,11 @@
 ## Información General
 
 >[!note]
+>
+>**Desarrollado por:**
 > 
-> **_Grupo #5_**, Sistemas Operativos - Software 3/1.
-> 
->**Integrantes y roles:**
-> 
-> - Panchana Rodríguez Jonathan David - **(Desarrollador)**
-> - Villao López Saul Josue - **(Documentación)**
-> - Tumbaco Lino Henry Bryan - **(Documentación y Tester)**
-> - Jacho Guerra Marco Iván - **(Product Owner)**
-> - Jama Pita Jandry Santiago - **(Tester y Feedback)**
+> - Jonathan Panchana Rodríguez
+
 
 >[!important] 
 > 
@@ -75,17 +70,6 @@ Este proyecto consiste en la implementación de los siguientes algoritmos de pla
 - Es una aplicación de escritorio sencilla pero funcional.
 
 ---
-## Etapas de Desarrollo
-- [X] **Sprint 1:** Base del proyecto (Lógica de procesos)
-- [X] **Sprint 2:** Algoritmo SRTF
-- [X] **Sprint 3:** Interfaz gráfica (JavaFX - Input y Output)
-- [X] **Sprint 4:** Visualización (Diagrama de Gantt)
-- [X] **Sprint 5:** UI dinámica
-- [X] **Sprint 6:** Exportación
-- [X] **Sprint 7:** Animaciones
-- [X] **Sprint 8:** Diseño Responsive
-
----
 ## Diagrama de Flujo General
 _Representa la lógica cuando el usuario selecciona un algoritmo y ejecuta la simulación._
 ![flujoGeneral.png](img/flujoGeneral.png)
@@ -129,7 +113,7 @@ jlink --module-path "$env:JAVA_HOME\jmods;C:\dev\javafx-sdk-24.0.2\jmods" --add-
 ### 3. Crear el instalador con `jpackage`
 
 ```bash
-jpackage --name soProccessPlanning --input target --main-jar soProcessPlanning-1.2.0.jar --main-class ui.MainApp --runtime-image runtime --type exe --vendor "Jonathan Panchana" --win-shortcut --win-menu --icon icon.ico
+jpackage --name soProccessPlanning --input target --main-jar soProcessPlanning-1.2.0.jar --main-class ui.MainApp --runtime-image runtime --type exe --vendor "Jonathan Panchana" --win-shortcut --win-menu --icon img/icon.ico
 ```
 
 **Resultado:** Instalador .exe listo para distribuir y ejecutar en cualquier PC con Windows, sin necesidad de instalar Java ni JavaFX.

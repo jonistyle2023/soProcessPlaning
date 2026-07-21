@@ -60,8 +60,11 @@ public class MainViewController {
     @FXML private TableColumn<Proceso, Integer> colRetorno;
     @FXML private TableColumn<Proceso, Integer> colEspera;
     @FXML private HBox ganttBox;
+    @FXML private HBox quantumBox;
+    @FXML private Spinner<Integer> quantumSpinner;
 
     // Variables
+    private static final String ROUND_ROBIN_NOMBRE = "Round Robin (Cíclico)";
     private final ObservableList<Proceso> listaProcesos = FXCollections.observableArrayList();
     private final Map<String, Planificador> algoritmos = new LinkedHashMap<>();
     private boolean ignorarCambioAlgoritmo = false;
@@ -69,14 +72,17 @@ public class MainViewController {
     @FXML
     public void initialize() {
         algoritmos.put ("Aleatorio", new RandomOrder());
-        algoritmos.put("Round Robin (Cíclico)", new RoundRobin());
+        algoritmos.put(ROUND_ROBIN_NOMBRE, new RoundRobin());
         algoritmos.put("FCFS", new FCFS());
         algoritmos.put("SJF", new SJF());
         algoritmos.put("SRTF", new SRTF());
 
+        quantumSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 20, 2));
+
         algoritmoComboBox.getItems().addAll(algoritmos.keySet());
         algoritmoComboBox.getSelectionModel().selectFirst();
         algoritmoComboBox.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            actualizarVisibilidadQuantum(newVal);
             if (ignorarCambioAlgoritmo) {
                 ignorarCambioAlgoritmo = false;
                 return;
@@ -101,6 +107,13 @@ public class MainViewController {
             }
         });
         configurarTabla();
+    }
+
+    // Muestra el selector de quantum solo cuando el algoritmo activo es Round Robin
+    private void actualizarVisibilidadQuantum(String algoritmoSeleccionado) {
+        boolean esRoundRobin = ROUND_ROBIN_NOMBRE.equals(algoritmoSeleccionado);
+        quantumBox.setVisible(esRoundRobin);
+        quantumBox.setManaged(esRoundRobin);
     }
 
     // Configuración de la tabla de procesos
@@ -168,16 +181,21 @@ public class MainViewController {
             return;
         }
         List<Proceso> procesosParaEjecutar = listaProcesos.stream()
-                .map(p -> new Proceso(p.getNombre(), p.getTiempoEjecucion(), p.getTiempoLlegada()))
+                .map(p -> new Proceso(p.getNombre(), p.getTiempoEjecucionOriginal(), p.getTiempoLlegada()))
                 .collect(Collectors.toList());
 
         Planificador planificador = algoritmos.get(algoSeleccionado);
+        if (planificador instanceof RoundRobin rr) {
+            rr.setQuantum(quantumSpinner.getValue());
+        }
         List<Proceso> resultado = planificador.ejecutar(procesosParaEjecutar);
 
         listaProcesos.setAll(resultado);
 
-        if (planificador instanceof SRTF) {
-            dibujarGanttSRTF(((SRTF) planificador).getTramos());
+        if (planificador instanceof SRTF srtf) {
+            dibujarGanttPorTramos(srtf.getTramos());
+        } else if (planificador instanceof RoundRobin rr) {
+            dibujarGanttPorTramos(rr.getTramos());
         } else {
             dibujarGantt(resultado);
         }
@@ -206,7 +224,7 @@ public class MainViewController {
         animarBloquesGantt(bloquesGantt, 0);
     }
 
-    private void dibujarGanttSRTF(List<TramoEjecucion> tramos) {
+    private void dibujarGanttPorTramos(List<TramoEjecucion> tramos) {
         ganttBox.getChildren().clear();
         if (tramos == null || tramos.isEmpty()) return;
 

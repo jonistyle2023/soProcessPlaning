@@ -1,4 +1,5 @@
 ### IntelliJ IDEA ###
+.idea
 out/
 runtime/
 .codeviz/
@@ -25,6 +26,11 @@ bin/
 /.nb-gradle/
 
 ### VS Code ###
+.vscode
 
 ### Mac OS ###
 .DS_Store
+
+### Extra ###
+CLAUDE.md
+soProcessPlanning.iml

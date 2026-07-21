@@ -1,0 +1,67 @@
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-color: #f4f6f8;
+}
+
+/* Botones: cursor de mano y esquinas redondeadas consistentes */
+.button {
+    -fx-cursor: hand;
+    -fx-background-radius: 4;
+    -fx-padding: 6 14 6 14;
+}
+
+.button-primary {
+    -fx-background-color: #43A047;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.button-primary:hover { -fx-background-color: #3d8b40; }
+.button-primary:pressed { -fx-background-color: #2E7D32; }
+
+.button-info {
+    -fx-background-color: #1E88E5;
+    -fx-text-fill: white;
+}
+.button-info:hover { -fx-background-color: #1b7ccc; }
+.button-info:pressed { -fx-background-color: #145FA8; }
+
+.button-warning {
+    -fx-background-color: #FB8C00;
+    -fx-text-fill: white;
+}
+.button-warning:hover { -fx-background-color: #e07e00; }
+.button-warning:pressed { -fx-background-color: #E65100; }
+
+.button-danger {
+    -fx-background-color: #E53935;
+    -fx-text-fill: white;
+}
+.button-danger:hover { -fx-background-color: #cc3330; }
+.button-danger:pressed { -fx-background-color: #B71C1C; }
+
+/* Botones de exportar: mantienen el look por defecto, solo suman cursor y hover */
+.button-secondary:hover {
+    -fx-background-color: #e6e6e6;
+}
+
+/* Diagrama de Gantt */
+.gantt-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: #cccccc;
+}
+
+.gantt-box {
+    -fx-background-color: #f8f9fa;
+}
+
+/* Footer */
+.footer-text {
+    -fx-fill: #888888;
+    -fx-font-size: 12px;
+}
+
+.footer-text-bold {
+    -fx-fill: #888888;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
